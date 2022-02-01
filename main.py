@@ -1,10 +1,12 @@
 import random
 import os
 
+
 def symulacja_sesji_gieldowej():
     aktualny_kurs = random.randrange(100, 200)
     print(f"Aktualny kurs: {aktualny_kurs}")
     return aktualny_kurs
+
 
 def logika(notowania, notowanie):
     if len(notowania) == 0:
@@ -28,20 +30,24 @@ def logika(notowania, notowanie):
         print("Kurs jest poniżej średniej")
     else:
         print("Kurs jest równy średniej")
-    print(f"Kurs - otwarcie: {notowania[0]}, maks: {max(notowania)}, min: {min(notowania)}, ostatni: {notowania[-1]}, "
-          f"średnia: {srednia}")
+    print(
+        f"Kurs - otwarcie: {notowania[0]}, maks: {max(notowania)}, min: {min(notowania)}, ostatni: {notowania[-1]}, "
+        f"średnia: {srednia}"
+    )
     input("Naciśnij ENTER aby kontynuować")
     return notowania
+
 
 def program():
     notowania = []
     while True:
-        os.system('clear')
+        os.system("clear")
         notowanie = symulacja_sesji_gieldowej()
         notowania = logika(notowania, notowanie)
         print(notowania)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     program()
 
 #  TODO logika zależności pomiędzy aktualnym kursem a wskaźnikami takimi jak np.:
