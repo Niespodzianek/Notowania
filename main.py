@@ -5,11 +5,11 @@ import time
 def symulacja_sesji_gieldowej(notowania):
     if notowania:
         zmiana_kursu = random.randrange(-10, 10)
-        print(f"Kurs zmieni się o: {zmiana_kursu}%")
+        print(f"Kurs zmienił się o: {zmiana_kursu}%")
         aktualny_kurs = notowania[-1] + (zmiana_kursu / 100 * notowania[-1])
     else:
         aktualny_kurs = random.randrange(100, 200)
-    print(f"Aktualny kurs: {aktualny_kurs}")
+    print(f"Aktualny kurs: {aktualny_kurs:.2f}")
     return aktualny_kurs
 
 def logika(notowania, notowanie):
@@ -74,22 +74,20 @@ def program():
         srednie_sma_21 = srednia(srednie_sma_21, notowania, dlugosc=21)
         logika_srednich(dluzsze_srednie=srednie_sma_21,dluzsza=21,krotsze_srednie=srednie_sma_8, krotsza=8)
         if srednie_sma_8 and srednie_sma_21:
-            print(f"Kurs - otwarcie: {notowania[0]}, maks: {max(notowania)}, min: {min(notowania)}, ostatni:"
-                  f" {notowania[-1]}, średnia SMA z 8 sesji: {srednie_sma_8[-1]} a z 21 sesji: {srednie_sma_21[-1]}")
+            print(f"Kurs - otwarcie: {notowania[0]:.2f}, maks: {max(notowania):.2f}, min: {min(notowania):.2f}, ostatni:"
+                  f" {notowania[-1]:.2f}, średnia SMA z 8 sesji: {srednie_sma_8[-1]:.2f} a z 21 sesji: {srednie_sma_21[-1]:.2f}")
         elif srednie_sma_8:
-            print(f"Kurs - otwarcie: {notowania[0]}, maks: {max(notowania)}, min: {min(notowania)}, ostatni:"
-                  f" {notowania[-1]}, średnia SMA z 8 sesji: {srednie_sma_8[-1]} a z 21 sesji: ---")
+            print(f"Kurs - otwarcie: {notowania[0]:.2f}, maks: {max(notowania):.2f}, min: {min(notowania):.2f}, ostatni:"
+                  f" {notowania[-1]:.2f}, średnia SMA z 8 sesji: {srednie_sma_8[-1]:.2f} a z 21 sesji: ---")
         else:
-            print(f"Kurs - otwarcie: {notowania[0]}, maks: {max(notowania)}, min: {min(notowania)},"
-                  f" ostatni: {notowania[-1]}, średnia SMA z 8 sesji: --- a z 21 sesji: ---")
+            print(f"Kurs - otwarcie: {notowania[0]:.2f}, maks: {max(notowania):.2f}, min: {min(notowania):.2f},"
+                  f" ostatni: {notowania[-1]:.2f}, średnia SMA z 8 sesji: --- a z 21 sesji: ---")
         time.sleep(5)
 
 if __name__ == "__main__":
     program()
 
 #  TODO logika zależności pomiędzy aktualnym kursem a wskaźnikami takimi jak np.:
-#  TODO 1. średnie, już policzone SMA - zrobione, teraz jeszcze przynajmniej EMA
+#  TODO 1. średnie, EMA
 #  TODO 2. linie Boolingera
 #  TODO 3. wykresy matplotlib
-#  TODO 4. logika pomiędzy średnimi - zrobione
-#  TODO 5. odchylenie stantardowe !!!
