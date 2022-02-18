@@ -63,16 +63,19 @@ def logika_srednich(dluzsze_srednie, dluzsza, krotsze_srednie, krotsza):
     return 0
 
 def program():
+    licznik = 0
     notowania = []
     srednie_sma_8 = []
     srednie_sma_21 = []
     while True:
         os.system("clear")
+        print(f"Sesja nr: {licznik + 1}")
+        licznik += 1
         notowanie = symulacja_sesji_gieldowej(notowania)
         notowania = logika(notowania, notowanie)
         srednie_sma_8 = srednia(srednie_sma_8, notowania, dlugosc=8)
         srednie_sma_21 = srednia(srednie_sma_21, notowania, dlugosc=21)
-        logika_srednich(dluzsze_srednie=srednie_sma_21,dluzsza=21,krotsze_srednie=srednie_sma_8, krotsza=8)
+        logika_srednich(dluzsze_srednie=srednie_sma_21,dluzsza=21, krotsze_srednie=srednie_sma_8, krotsza=8)
         if srednie_sma_8 and srednie_sma_21:
             print(f"Kurs - otwarcie: {notowania[0]:.2f}, maks: {max(notowania):.2f}, min: {min(notowania):.2f}, ostatni:"
                   f" {notowania[-1]:.2f}, średnia SMA z 8 sesji: {srednie_sma_8[-1]:.2f} a z 21 sesji: {srednie_sma_21[-1]:.2f}")
